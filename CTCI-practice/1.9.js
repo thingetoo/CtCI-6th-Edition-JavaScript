@@ -26,5 +26,32 @@ loop through string 2 and subtract those occurences
 
 we check the length of the object keys
 
+if (str1.length !== str2.length) {
+  return false
+}
+
+const occ = {};
+
+for (let i = 0; i < str1.length; i++) {
+  if (!occ[str1[i]]) {
+    occ[str1[i]] = 1;
+  } else {
+    occ[str1[i]]++;
+  }
+}
+
+for (let i = 0; i < str2.length) {
+  if (!occ[str2[i]]) {
+    return false
+  }
+  if (occ[str2[i]]) {
+    occ[str2[i]]--;
+    if (occ[str2[i]] === 0) {
+      delete occ[str2[i]]
+    }
+  }
+}
+
+return Object.keys(occ) === 0;
 
 */
